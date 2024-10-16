@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "br.com.devjmcn.newsapp"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -45,6 +48,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //RETROFIT
     implementation(libs.retrofit)
     implementation(libs.gson)
+    //PAGING 3
+    implementation(libs.androidx.paging.runtime.ktx)
+    //COIL
+    implementation(libs.coil)
+    implementation(libs.coil.network.okhttp)
 }
