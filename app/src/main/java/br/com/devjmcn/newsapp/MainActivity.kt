@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
@@ -20,8 +23,12 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val adapter by lazy{
-        ArticleAdapter()
+    private val navController by lazy {
+        findNavController(R.id.nav_host_fragment_container)
+    }
+
+    private val appBarConfiguration by lazy {
+        AppBarConfiguration(navController.graph)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,25 +40,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        setSupportActionBar(binding.mainToolbar)
 
-        initConfig()
+        navController.addOnDestinationChangedListener{ controller, destination, arguments ->
+            title = destination.label
+        }
     }
 
-    private fun initConfig() {
-        val articles = Pager(
-            config = PagingConfig(20, enablePlaceholders = false),
-            pagingSourceFactory = { PagingNews(
-                keyWords = "SpaceX",
-                RetrofitInstance.service
-            ) }
-        ).flow.cachedIn(lifecycleScope)
-
-        binding.rcvNews.adapter = adapter
-
-        lifecycleScope.launch {
-            articles.collectLatest {pagingData ->
-                adapter.submitData(pagingData)
-            }
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

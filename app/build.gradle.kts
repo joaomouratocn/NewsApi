@@ -39,7 +39,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -56,4 +55,7 @@ dependencies {
     //COIL
     implementation(libs.coil)
     implementation(libs.coil.network.okhttp)
+    //NAVIGATION COMPONENTS
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui.ktx)
 }

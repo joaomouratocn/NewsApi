@@ -16,11 +16,12 @@
             android:id="@+id/txv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:maxLines="2"
             android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/txv_source"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="@tools:sample/lorem/random" />
 
@@ -30,17 +31,16 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/txv_publish_in"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Fonte: Lorem"/>
 
         <TextView
             android:id="@+id/txv_publish_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txv_title"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Data: 16/10/2024"/>
 
         <ImageView
@@ -51,7 +51,9 @@
             android:contentDescription="@string/str_image_news"
             android:scaleX="1.4"
             android:src="@drawable/place_holder"
-            app:layout_constraintTop_toBottomOf="@id/txv_publish_in"/>
+            app:layout_constraintTop_toBottomOf="@id/txv_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

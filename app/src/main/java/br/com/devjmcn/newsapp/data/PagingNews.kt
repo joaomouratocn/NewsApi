@@ -26,7 +26,7 @@ class PagingNews(private val keyWords:String, private val service: TopHeadLineSe
             )
 
             val newResponse = response.body()
-            val articles = newResponse?.articles ?: emptyList()
+            val articles = newResponse?.articles?.filter { it.title != "[Removed]" } ?: emptyList()
             val totalResult = newResponse?.totalResults ?: 0
 
             val nextKey = if (articles.isEmpty() || position * pageSize >= totalResult) {
