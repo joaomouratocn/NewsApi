@@ -10,4 +10,5 @@
         android:name="br.com.devjmcn.newsapp.SearchNewsFragment"
         android:label="fragment_search_news"
         tools:layout="@layout/fragment_search_news" />
+
 </navigation>

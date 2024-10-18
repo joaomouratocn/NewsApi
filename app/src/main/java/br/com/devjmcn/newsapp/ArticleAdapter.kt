@@ -1,13 +1,7 @@
 package br.com.devjmcn.newsapp
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView.ScaleType.CENTER
-import android.widget.ImageView.ScaleType.CENTER_CROP
-import android.widget.ImageView.ScaleType.FIT_CENTER
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +12,6 @@ import coil3.load
 import coil3.request.crossfade
 import coil3.request.error
 import coil3.request.placeholder
-import java.util.ResourceBundle
 
 class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHolder>(
     ARTICLE_COMPARATOR
@@ -51,7 +44,7 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
             }
         }
 
-        fun bind(article: Article) {
+        fun bind(article: Article, resultLoadImage: (Boolean) -> Unit) {
             with(binding) {
                 txvTitle.text = article.title
                 txvSource.text = article.source.name
@@ -60,6 +53,14 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
                     crossfade(true)
                     placeholder(R.drawable.place_holder)
                     error(R.drawable.error_warning)
+                    listener(
+                        onSuccess = {_,_ ->
+                            resultLoadImage(true)
+                        },
+                        onError = {_, _ ->
+                            resultLoadImage(false)
+                        }
+                    )
                 }
             }
         }
@@ -67,7 +68,11 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = getItem(position)
-        article?.let { holder.bind(article) }
+        article?.let {
+            holder.bind(article){resultLoadImage ->
+                if (!resultLoadImage){item}
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
