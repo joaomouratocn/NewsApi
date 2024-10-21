@@ -1,6 +1,16 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
+}
+
+val secretsPropertiesFile = rootProject.file("secrets.properties")
+val secretsProperties = Properties()
+if (secretsPropertiesFile.exists()) {
+    secretsProperties.load(secretsPropertiesFile.inputStream())
 }
 
 android {
@@ -15,6 +25,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField(
+            "String",
+            "API_KEY",
+            "\"${secretsProperties["API_KEY"]}\""
+        )
     }
 
     buildTypes {
@@ -47,6 +63,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //NAVIGATION COMPONENTS
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui.ktx)
+    //HILT
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
     //RETROFIT
     implementation(libs.retrofit)
     implementation(libs.gson)
@@ -55,7 +77,4 @@ dependencies {
     //COIL
     implementation(libs.coil)
     implementation(libs.coil.network.okhttp)
-    //NAVIGATION COMPONENTS
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui.ktx)
 }

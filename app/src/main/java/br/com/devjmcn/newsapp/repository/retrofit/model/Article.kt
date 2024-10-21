@@ -1,4 +1,4 @@
-package br.com.devjmcn.newsapp.data.retrofit.model
+package br.com.devjmcn.newsapp.repository.retrofit.model
 
 data class Article(
     val source: Source,

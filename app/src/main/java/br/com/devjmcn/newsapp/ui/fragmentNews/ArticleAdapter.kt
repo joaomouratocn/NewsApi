@@ -1,11 +1,12 @@
-package br.com.devjmcn.newsapp
+package br.com.devjmcn.newsapp.ui.fragmentNews
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import br.com.devjmcn.newsapp.data.retrofit.model.Article
+import br.com.devjmcn.newsapp.R
+import br.com.devjmcn.newsapp.repository.retrofit.model.Article
 import br.com.devjmcn.newsapp.databinding.ItemLayoutNewsBinding
 import br.com.devjmcn.newsapp.util.convertDate
 import coil3.load
@@ -44,7 +45,7 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
             }
         }
 
-        fun bind(article: Article, resultLoadImage: (Boolean) -> Unit) {
+        fun bind(article: Article) {
             with(binding) {
                 txvTitle.text = article.title
                 txvSource.text = article.source.name
@@ -53,14 +54,6 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
                     crossfade(true)
                     placeholder(R.drawable.place_holder)
                     error(R.drawable.error_warning)
-                    listener(
-                        onSuccess = {_,_ ->
-                            resultLoadImage(true)
-                        },
-                        onError = {_, _ ->
-                            resultLoadImage(false)
-                        }
-                    )
                 }
             }
         }
@@ -68,11 +61,7 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = getItem(position)
-        article?.let {
-            holder.bind(article){resultLoadImage ->
-                if (!resultLoadImage){item}
-            }
-        }
+        article?.let {holder.bind(article)}
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {

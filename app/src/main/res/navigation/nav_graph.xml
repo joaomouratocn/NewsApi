@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/searchNewsFragment"
-        android:name="br.com.devjmcn.newsapp.SearchNewsFragment"
+        android:name="br.com.devjmcn.newsapp.ui.fragmentNews.SearchNewsFragment"
         android:label="fragment_search_news"
         tools:layout="@layout/fragment_search_news" />
 

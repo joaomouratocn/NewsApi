@@ -1,12 +1,12 @@
-package br.com.devjmcn.newsapp.data
+package br.com.devjmcn.newsapp.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import br.com.devjmcn.newsapp.data.retrofit.TopHeadLineService
-import br.com.devjmcn.newsapp.data.retrofit.model.Article
+import br.com.devjmcn.newsapp.repository.retrofit.NewsApiService
+import br.com.devjmcn.newsapp.repository.retrofit.model.Article
 import java.io.IOException
 
-class PagingNews(private val keyWords:String, private val service: TopHeadLineService) : PagingSource<Int, Article>() {
+class PagingNews(private val keyWords:String, private val service: NewsApiService) : PagingSource<Int, Article>() {
     override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
@@ -19,7 +19,7 @@ class PagingNews(private val keyWords:String, private val service: TopHeadLineSe
         val pageSize = params.loadSize
 
         return try {
-            val response = service.getTopHeadLine(
+            val response = service.searchNews(
                 keyWords = keyWords,
                 page = position,
                 pageSize = pageSize,

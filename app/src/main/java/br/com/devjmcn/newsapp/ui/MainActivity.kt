@@ -1,10 +1,11 @@
-package br.com.devjmcn.newsapp
+package br.com.devjmcn.newsapp.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import br.com.devjmcn.newsapp.R
 import br.com.devjmcn.newsapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
