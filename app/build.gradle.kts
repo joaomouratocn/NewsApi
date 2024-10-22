@@ -17,6 +17,10 @@ android {
     namespace = "br.com.devjmcn.newsapp"
     compileSdk = 34
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "br.com.devjmcn.newsapp"
         minSdk = 26
