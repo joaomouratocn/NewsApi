@@ -1,7 +1,7 @@
 *.iml
 .gradle
 .idea
-./secrets.properties
+secrets.properties
 /local.properties
 /.idea/caches
 /.idea/libraries
