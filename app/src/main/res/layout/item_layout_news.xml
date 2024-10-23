@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
+    android:layout_margin="8dp"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +32,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Fonte: Lorem"/>
+            tools:text="Source: Lorem"/>
 
         <TextView
             android:id="@+id/txv_publish_in"
@@ -47,12 +47,13 @@
             android:id="@+id/img_cover"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:layout_marginTop="8dp"
+            android:layout_margin="16dp"
             android:contentDescription="@string/str_image_news"
             android:scaleX="1.4"
             android:src="@drawable/place_holder"
             app:layout_constraintTop_toBottomOf="@id/txv_title"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

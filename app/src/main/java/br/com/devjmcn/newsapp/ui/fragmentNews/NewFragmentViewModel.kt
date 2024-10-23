@@ -7,18 +7,46 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import br.com.devjmcn.newsapp.repository.PagingNews
+import br.com.devjmcn.newsapp.repository.retrofit.NewsApiService
 import br.com.devjmcn.newsapp.repository.retrofit.model.Article
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NewFragmentViewModel @Inject constructor(pageNews: PagingNews) : ViewModel() {
-    private val _news: Flow<PagingData<Article>> = Pager(
-        config = PagingConfig(20, enablePlaceholders = false),
-        pagingSourceFactory = { pageNews }
-    ).flow.cachedIn(viewModelScope)
+class NewFragmentViewModel @Inject constructor(private val newsApiService: NewsApiService) :
+    ViewModel() {
 
-    val news: Flow<PagingData<Article>> = _news
+    private val _searchText: MutableStateFlow<String> = MutableStateFlow("Notícias")
+
+    private val _news: MutableStateFlow<PagingData<Article>?> = MutableStateFlow(null)
+    val news: StateFlow<PagingData<Article>?> = _news
+
+
+    init {
+        viewModelScope.launch {
+            _searchText.collectLatest { query ->
+                val newPager = Pager(
+                    config = PagingConfig(pageSize = 20, enablePlaceholders = false),
+                    pagingSourceFactory = {
+                        PagingNews(
+                            keyWords = query,
+                            service = newsApiService
+                        )
+                    }
+                ).flow.cachedIn(viewModelScope)
+
+                newPager.collectLatest { pagingData ->
+                    _news.value = pagingData
+                }
+            }
+        }
+    }
+
+    fun searchNews(searchText: String) {
+        _searchText.value = searchText
+    }
 }

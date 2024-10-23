@@ -15,7 +15,7 @@ import javax.inject.Singleton
 object NetWorkModule {
     @Provides
     @Singleton
-    private fun provideRetrofit():Retrofit{
+    fun provideRetrofit():Retrofit{
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
