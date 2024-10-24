@@ -9,21 +9,23 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import br.com.devjmcn.newsapp.R
-import br.com.devjmcn.newsapp.databinding.FragmentSearchNewsBinding
+import br.com.devjmcn.newsapp.databinding.FragmentNewsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class NewsFragment : Fragment() {
-    private val newFragmentViewModel: NewFragmentViewModel by viewModels()
+    private val newsFragmentViewModel: NewsFragmentViewModel by viewModels()
 
     private val binding by lazy {
-        FragmentSearchNewsBinding.inflate(layoutInflater)
+        FragmentNewsBinding.inflate(layoutInflater)
     }
 
     private val adapter by lazy {
-        ArticleAdapter()
+        NewsAdapter { url ->
+            navigateToDetail(url)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +49,7 @@ class NewsFragment : Fragment() {
             }
         }
         lifecycleScope.launch {
-            newFragmentViewModel.news.collectLatest { pagingData ->
+            newsFragmentViewModel.news.collectLatest { pagingData ->
                 if (pagingData != null) {
                     adapter.submitData(pagingData)
                 }
@@ -57,7 +59,7 @@ class NewsFragment : Fragment() {
 
     private fun searchNews(searchText: String) {
         if (searchText.isNotBlank()) {
-            newFragmentViewModel.searchNews(searchText)
+            newsFragmentViewModel.searchNews(searchText)
             return
         }
         Toast.makeText(
@@ -65,5 +67,9 @@ class NewsFragment : Fragment() {
             getString(R.string.str_insert_topic_for_search),
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun navigateToDetail(url: String) {
+        Fra
     }
 }

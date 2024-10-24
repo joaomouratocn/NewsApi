@@ -14,7 +14,7 @@ import coil3.request.crossfade
 import coil3.request.error
 import coil3.request.placeholder
 
-class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHolder>(
+class NewsAdapter(private val itemClickEvent:(url:String) ->Unit) : PagingDataAdapter<Article, NewsAdapter.ArticleViewHolder>(
     ARTICLE_COMPARATOR
 ) {
 
@@ -31,6 +31,15 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
         }
     }
 
+    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
+        val article = getItem(position)
+        article?.let {holder.bind(article, itemClickEvent)}
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
+        return ArticleViewHolder.inflate(parent)
+    }
+
     class ArticleViewHolder(private val binding: ItemLayoutNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -45,8 +54,11 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
             }
         }
 
-        fun bind(article: Article) {
+        fun bind(article: Article, itemClickEvent: (url:String) -> Unit) {
             with(binding) {
+                root.setOnClickListener {
+                    itemClickEvent(article.url)
+                }
                 txvTitle.text = article.title
                 txvSource.text = article.source.name
                 txvPublishIn.text = article.publishedAt.convertDate()
@@ -57,14 +69,5 @@ class ArticleAdapter : PagingDataAdapter<Article, ArticleAdapter.ArticleViewHold
                 }
             }
         }
-    }
-
-    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-        val article = getItem(position)
-        article?.let {holder.bind(article)}
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
-        return ArticleViewHolder.inflate(parent)
     }
 }

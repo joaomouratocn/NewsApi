@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NewFragmentViewModel @Inject constructor(private val newsApiService: NewsApiService) :
+class NewsFragmentViewModel @Inject constructor(private val newsApiService: NewsApiService) :
     ViewModel() {
 
     private val _searchText: MutableStateFlow<String> = MutableStateFlow("Notícias")
