@@ -2,7 +2,7 @@
 
 Aplicativo desenvolvido,
 
-| Listas de comptas           | Inserir valor do produto                                  | Opçẽs para inserir produto                                |
+| Sem Busta de assunto           | Com busca de assunto                                  | Com busca de assunto                                |
 |-----------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
 | ![Screenshot](screenshots/Screenshot_20241026-034116.png) | ![Screenshot](screenshots/Screenshot_20241026-034134.png) | ![Screenshot](screenshots/Screenshot_20241026-034202.png) |
 
