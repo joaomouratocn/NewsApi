@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="str_image_news">Imagem Notícia</string>
+    <string name="str_search_topic">Procure um assunto</string>
+    <string name="str_search">Procurar</string>
+    <string name="str_button_search">Botão Procurar</string>
+    <string name="str_insert_topic_for_search">Insira um assunto para procurar</string>
+</resources>

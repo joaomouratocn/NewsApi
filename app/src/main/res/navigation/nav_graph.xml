@@ -11,13 +11,21 @@
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
-            android:id="@+id/action_newsFragment_to_fragmentNewsDetail2"
-            app:destination="@id/fragmentNewsDetail2" />
+            android:id="@+id/action_newsFragment_to_fragmentNewsDetail"
+            app:destination="@id/fragmentNewsDetail">
+            <argument
+                android:name="url"
+                app:argType="string"/>
+        </action>
     </fragment>
     <fragment
-        android:id="@+id/fragmentNewsDetail2"
+        android:id="@+id/fragmentNewsDetail"
         android:name="br.com.devjmcn.newsapp.ui.fragmentDetail.FragmentNewsDetail"
         android:label="fragment_news_detail"
-        tools:layout="@layout/fragment_news_detail" />
+        tools:layout="@layout/fragment_news_detail">
+        <argument
+            android:name="url"
+            app:argType="string"/>
+    </fragment>
 
 </navigation>

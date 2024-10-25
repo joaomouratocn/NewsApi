@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import br.com.devjmcn.newsapp.R
 import br.com.devjmcn.newsapp.databinding.FragmentNewsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -70,6 +71,8 @@ class NewsFragment : Fragment() {
     }
 
     private fun navigateToDetail(url: String) {
-        Fra
+        val action =
+            NewsFragmentDirections.actionNewsFragmentToFragmentNewsDetail(url)
+        findNavController().navigate(action)
     }
 }

@@ -3,9 +3,9 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.navigation.safe.args)
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
-    id("androidx.navigation.safeargs.kotlin")
 }
 
 val secretsPropertiesFile = rootProject.file("secrets.properties")
