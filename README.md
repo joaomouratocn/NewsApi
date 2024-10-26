@@ -1,10 +1,10 @@
 # News App
 
-Aplicativo desenvolvido, para adquirir os conhecimentos descritos nas ferramentas abaixo.
+Aplicativo desenvolvido, de notícias utilizando a api [NewsApi](https://newsapi.org/) para adquirir os conhecimentos descritos nas ferramentas abaixo.
 
 | Sem Busta de assunto           | Com busca de assunto                                  | Com busca de assunto                                |
 |-----------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
-| ![Screenshot](screenshots/Screenshot_20241026-034116.png) | ![Screenshot](screenshots/Screenshot_20241026-034134.png) | ![Screenshot](screenshots/Screenshot_20241026-034202.png) |
+| ![Screenshot](screenshots/Screenshot_20241026-034116.png) | ![Screenshot](screenshots/20241025163748.mp4) | ![Screenshot](screenshots/Screenshot_20241026-034202.png) |
 
 Ultilizados:
 * KOTLIN (linguagem de programação)
