@@ -7,7 +7,7 @@ Aplicativo desenvolvido,
 | ![Screenshot](screenshots/Screenshot_20241026-034116.png) | ![Screenshot](screenshots/Screenshot_20241026-034134.png) | ![Screenshot](screenshots/Screenshot_20241026-034202.png) |
 
 Ultilizados:
-* KOTLIN (linguagem de progração)
+* KOTLIN (linguagem de programação)
 * XML (contrução de layouts)
 * MVVM (model view viewmodel)
 * FRAGMENTS (logica das telas)
