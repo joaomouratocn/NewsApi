@@ -1,6 +1,6 @@
 # News App
 
-Aplicativo desenvolvido, para adquirir os conhecimentos descritos nas ferramentas descritas abaixo.
+Aplicativo desenvolvido, para adquirir os conhecimentos descritos nas ferramentas abaixo.
 
 | Sem Busta de assunto           | Com busca de assunto                                  | Com busca de assunto                                |
 |-----------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
