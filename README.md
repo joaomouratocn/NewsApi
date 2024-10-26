@@ -1,6 +1,6 @@
 # News App
 
-Aplicativo desenvolvido,
+Aplicativo desenvolvido, para adquirir os conhecimentos descritos nas ferramentas descritas abaixo.
 
 | Sem Busta de assunto           | Com busca de assunto                                  | Com busca de assunto                                |
 |-----------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
@@ -8,9 +8,9 @@ Aplicativo desenvolvido,
 
 Ultilizados:
 * KOTLIN (linguagem de programação)
-* XML (contrução de layouts)
+* XML (construção de layouts)
 * MVVM (model view viewmodel)
-* FRAGMENTS (logica das telas)
+* FRAGMENTS (lógica das telas)
 * NAVIGATION COMPONENTS/SAFE-ARGS (navegação entre os fragmentos)
 * PAGING 3 (busca paginada das notícias)
 * COROUTINES (para executar tarefas fora da thread principal)
