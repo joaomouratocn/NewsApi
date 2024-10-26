@@ -12,6 +12,7 @@ Ultilizados:
 * MVVM (model view viewmodel)
 * FRAGMENTS (logica das telas)
 * NAVIGATION COMPONENTS/SAFE-ARGS (navegação entre os fragmentos)
+* PAGING 3 (busca paginada das notícias)
 * COROUTINES (para executar tarefas fora da thread principal)
 * HILT (injeção de depêndecias)
 * COIL (requisição de imagens)
