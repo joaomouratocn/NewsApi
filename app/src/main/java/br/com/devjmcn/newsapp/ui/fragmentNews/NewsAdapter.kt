@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import br.com.devjmcn.newsapp.R
-import br.com.devjmcn.newsapp.repository.retrofit.model.Article
+import br.com.devjmcn.newsapp.data.retrofit.model.Article
 import br.com.devjmcn.newsapp.databinding.ItemLayoutNewsBinding
 import br.com.devjmcn.newsapp.util.convertDate
 import coil3.load

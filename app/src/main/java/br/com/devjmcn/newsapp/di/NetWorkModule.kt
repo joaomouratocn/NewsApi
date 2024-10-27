@@ -1,6 +1,6 @@
 package br.com.devjmcn.newsapp.di
 
-import br.com.devjmcn.newsapp.repository.retrofit.NewsApiService
+import br.com.devjmcn.newsapp.data.retrofit.NewsApiService
 import br.com.devjmcn.newsapp.util.BASE_URL
 import dagger.Module
 import dagger.Provides

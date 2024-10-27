@@ -6,9 +6,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import br.com.devjmcn.newsapp.repository.PagingNews
-import br.com.devjmcn.newsapp.repository.retrofit.NewsApiService
-import br.com.devjmcn.newsapp.repository.retrofit.model.Article
+import br.com.devjmcn.newsapp.data.PagingNews
+import br.com.devjmcn.newsapp.data.retrofit.NewsApiService
+import br.com.devjmcn.newsapp.data.retrofit.model.Article
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
