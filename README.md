@@ -4,7 +4,7 @@ Aplicativo desenvolvido, de notícias utilizando a api [NewsApi](https://newsapi
 
 | Sem Busta de assunto           | Com busca de assunto                                  | video                                |
 |-----------------------------|-----------------------------------------------------------|-----------------------------------------------------------|
-| ![Screenshot](screenshots/Screenshot_20241026-034116.png) | ![Screenshot](screenshots/Screenshot_20241026-034202.png) | ![video](screenshots/video.gif) |
+| ![Screenshot](screenshots/Screenshot_20241026-034116.png) | ![Screenshot](screenshots/Screenshot_20241026-034202.png) | ![video](screenshots/video.mp4) |
 
 Ultilizados:
 * KOTLIN (linguagem de programação)
